@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
           caret.label("No time");
           caret.spawnMove("d", "u");
         }
-        //console.log(caret);
+        // console.log(caret);
         return caret.root();
       })(maxNum),
       null,
       (img: HTMLElement) => {
-        //console.log(img);
+        // console.log(img);
         topElem.appendChild(img);
       }
     );
