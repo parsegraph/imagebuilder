@@ -5094,6 +5094,18 @@ parsegraph-normalizewheel@^1.4.7:
   resolved "https://registry.yarnpkg.com/parsegraph-normalizewheel/-/parsegraph-normalizewheel-1.4.7.tgz#a7643a28597a0b275e3d4bfe15c7eb60372b915f"
   integrity sha512-F0nTb+hZVBAZ4d8W+GZ281DDl4Br1U62fHj2oW5xxKfr1E9u/b9K4243FSYNG0XfzZzhjYoSIjUwM4ew3KMPZw==
 
+parsegraph-projector@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/parsegraph-projector/-/parsegraph-projector-1.12.0.tgz#300fd9d2d682730d23ecd5edf2526a8b96f0e895"
+  integrity sha512-GcO0rcjXSlXIH4rpa5rqGB731fabYFy6dGjSnnPgXIDKib3CkpdDc+Jw5XUi1l1UqY6trJ41rD8Iueky5N4iLg==
+  dependencies:
+    parsegraph-compileprogram "^2.2.9"
+    parsegraph-matrix "^1.4.11"
+    parsegraph-method "^1.4.10"
+    parsegraph-rect "^1.4.7"
+    parsegraph-timing "^1.4.16"
+    parsegraph-timingbelt "^1.7.11"
+
 parsegraph-projector@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/parsegraph-projector/-/parsegraph-projector-1.10.0.tgz#f9455a2805eee237cb8491608607962a218254b4"

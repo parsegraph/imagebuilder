@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < max; ++i) {
           caret.spawnMove("f", "b");
           caret.label("No time");
+          caret.spawnMove("d", "u");
         }
         console.log(caret);
         return caret.root();

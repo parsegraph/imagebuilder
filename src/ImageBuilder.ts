@@ -1,11 +1,12 @@
 import { AnimationTimer, elapsed } from "parsegraph-timing";
 import { GraphPainter } from "parsegraph-graphpainter";
-import { ImageProjector } from "parsegraph-projector";
+import ImageProjector from "./ImageProjector";
 import Camera from "parsegraph-camera";
 import { INTERVAL } from "parsegraph-timingbelt";
 import { showInCamera } from "parsegraph-showincamera";
 import { DirectionNode } from "parsegraph-direction";
 import { PaintedNode } from "parsegraph-artist";
+import { setVFlip } from 'parsegraph-matrix';
 
 export type Job = {
   creatorFunc: () => DirectionNode;
@@ -36,6 +37,7 @@ export default class ImageBuilder {
 
     this._jobs = [];
     this._projector = new ImageProjector(width, height, 1);
+    this._projector.setOffscreen(true);
     this._painter = new GraphPainter(null, new Camera());
     this._painter.setOnScheduleUpdate(this.scheduleUpdate, this);
     this._painter.camera().setSize(width, height);
