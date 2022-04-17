@@ -57,7 +57,7 @@
     "parsegraph-camera": "^1.4.11",
     "parsegraph-direction": "^2.1.0",
     "parsegraph-graphpainter": "^2.4.0",
-    "parsegraph-projector": "1.12.0",
+    "parsegraph-projector": "1.13.0",
     "parsegraph-showincamera": "^1.7.0",
     "parsegraph-timing": "^1.4.16",
     "parsegraph-timingbelt": "^1.7.11"
