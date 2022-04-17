@@ -5,7 +5,7 @@ import Camera from "parsegraph-camera";
 import { INTERVAL } from "parsegraph-timingbelt";
 import { showInCamera } from "parsegraph-showincamera";
 import { DirectionNode } from "parsegraph-direction";
-import { PaintedNode } from 'parsegraph-artist';
+import { PaintedNode } from "parsegraph-artist";
 
 export type Job = {
   creatorFunc: () => DirectionNode;
@@ -155,7 +155,10 @@ export default class ImageBuilder {
     const proj = this.projector();
     proj.overlay().resetTransform();
     this.projector().render();
-    this.projector().glProvider().gl().viewport(0, 0, this.projector().width(), this.projector().height());
+    this.projector()
+      .glProvider()
+      .gl()
+      .viewport(0, 0, this.projector().width(), this.projector().height());
   }
 
   newImage() {
