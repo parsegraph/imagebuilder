@@ -1,12 +1,11 @@
 import { AnimationTimer, elapsed } from "parsegraph-timing";
 import { GraphPainter } from "parsegraph-graphpainter";
-import ImageProjector from "./ImageProjector";
+import {ImageProjector} from "parsegraph-projector";
 import Camera from "parsegraph-camera";
 import { INTERVAL } from "parsegraph-timingbelt";
 import { showInCamera } from "parsegraph-showincamera";
 import { DirectionNode } from "parsegraph-direction";
 import { PaintedNode } from "parsegraph-artist";
-import { setVFlip } from 'parsegraph-matrix';
 
 export type Job = {
   creatorFunc: () => DirectionNode;
@@ -63,7 +62,7 @@ export default class ImageBuilder {
     callbackFunc?: (img: HTMLElement) => void,
     callbackFuncThisArg?: object
   ) {
-    console.log("Adding job");
+    //console.log("Adding job");
     this._jobs.push({
       creatorFunc: creatorFunc as () => DirectionNode,
       creatorFuncThisArg: creatorFuncThisArg,
@@ -100,7 +99,7 @@ export default class ImageBuilder {
     };
     const job = this._jobs[0];
     if (!job) {
-      console.log("No scenes to build.");
+      //console.log("No scenes to build.");
       return false;
     }
     if (!job.rootless && !job.root) {

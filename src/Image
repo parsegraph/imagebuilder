@@ -1,4 +1,4 @@
-import {BasicProjector} from "parsegraph-projector"
+import BasicProjector from "./BasicProjector";
 import { BasicGLProvider } from "parsegraph-compileprogram";
 
 export default class ImageProjector extends BasicProjector {
@@ -147,6 +147,7 @@ export default class ImageProjector extends BasicProjector {
     gl.deleteFramebuffer(framebuffer);
 
     const context = this.imageContext();
+    context.drawImage(this.overlayCanvas(), 0, 0);
 
     // Copy the pixels to a 2D canvas
     const imageData = context.createImageData(width, height);
@@ -164,21 +165,20 @@ export default class ImageProjector extends BasicProjector {
     image.style.position = "absolute";
     image.style.left = "0px";
     image.style.top = "0px";
-    image.style.width = Math.floor(this._explicitWidth) + "px";
-    image.style.height = Math.floor(this._explicitHeight) + "px";
-    image.style.transform = `scaleY(-1) scale(${this.scale()})`;
+    image.style.width = Math.floor(this.scale() * this._explicitWidth) + "px";
+    image.style.height = Math.floor(this.scale() * this._explicitHeight) + "px";
+    image.style.transform = `scaleY(-1)`;
     image.src = canvas.toDataURL();
     cont.appendChild(image);
 
     context.clearRect(0, 0, width, height);
+    context.drawImage(this.overlayCanvas(), 0, 0);
     image = new Image();
     image.style.position = "absolute";
     image.style.left = "0px";
     image.style.top = "0px";
-    image.style.width = Math.floor(this._explicitWidth) + "px";
-    image.style.height = Math.floor(this._explicitHeight) + "px";
-    image.style.transform = `scale(${this.scale()})`;
-    context.drawImage(this.overlayCanvas(), 0, 0);
+    image.style.width = Math.floor(this.scale() * this._explicitWidth) + "px";
+    image.style.height = Math.floor(this.scale() * this._explicitHeight) + "px";
     image.src = canvas.toDataURL();
     cont.appendChild(image);
 
@@ -190,7 +190,7 @@ export default class ImageProjector extends BasicProjector {
     domCont.style.height = Math.floor(this._explicitHeight) + "px";
     domCont.style.transformOrigin = "top left";
     domCont.style.transform = `scale(${this.scale()})`;
-    domCont.innerHTML = this.container().innerHTML;
+    domCont.innerHTML = this.getDOMContainer().innerHTML;
     cont.appendChild(domCont);
 
     return cont;
