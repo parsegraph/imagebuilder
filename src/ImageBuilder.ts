@@ -1,26 +1,36 @@
 import { AnimationTimer, elapsed } from "parsegraph-timing";
-import GraphPainter, {Viewport} from 'parsegraph-graphpainter';
-import {ImageProjector} from 'parsegraph-projector';
-import Camera from 'parsegraph-camera';
-import {INTERVAL} from 'parsegraph-timingbelt';
-import {showInCamera} from 'parsegraph-showincamera';
+import { GraphPainter } from "parsegraph-graphpainter";
+import { ImageProjector } from "parsegraph-projector";
+import Camera from "parsegraph-camera";
+import { INTERVAL } from "parsegraph-timingbelt";
+import { showInCamera } from "parsegraph-showincamera";
+import { DirectionNode } from 'parsegraph-direction';
+
+export type Job = {
+  creatorFunc: ()=>DirectionNode,
+  creatorFuncThisArg: object,
+  callbackFunc: (img:HTMLElement)=>void,
+  callbackFuncThisArg:object
+  root: DirectionNode,
+  rootless: boolean,
+  builders: [(timeLeft: number)=>boolean, object][]
+};
 
 export default class ImageBuilder {
   _renderTimer: AnimationTimer;
   _projector: ImageProjector;
   _painter: GraphPainter;
 
-  _jobs: any[];
-  _builders: any[];
+  _jobs: Job[];
 
   constructor(width: number, height: number) {
     this._renderTimer = new AnimationTimer();
     this._renderTimer.setListener(this.cycle, this);
 
     this._jobs = [];
-    this._builders = [];
     this._projector = new ImageProjector(width, height, 1);
     this._painter = new GraphPainter(null, new Camera());
+    this._painter.camera().setSize(width, height);
     this._painter.setOnScheduleUpdate(this.scheduleUpdate, this);
 
     this.scheduleUpdate();
@@ -40,19 +50,24 @@ export default class ImageBuilder {
 
   createImage(
     creatorFunc: Function,
-    creatorFuncThisArg?: any,
-    callbackFunc?: Function,
-    callbackFuncThisArg?: any
+    creatorFuncThisArg?: object,
+    callbackFunc?: (img:HTMLElement)=>void,
+    callbackFuncThisArg?:object 
   ) {
+    console.log("Adding job");
     this._jobs.push({
-      creatorFunc: creatorFunc,
+      creatorFunc: creatorFunc as ()=>DirectionNode,
       creatorFuncThisArg: creatorFuncThisArg,
       callbackFunc: callbackFunc,
       callbackFuncThisArg: callbackFuncThisArg,
+      root: null,
+      rootless: false,
+      builders: null
     });
+    this.scheduleUpdate();
   }
 
-  queueJob(builderFunc: Function, builderFuncThisArg?: any) {
+  queueJob(builderFunc: (timeLeft: number)=>boolean, builderFuncThisArg?: any) {
     const job = this._jobs[0];
     if (!job) {
       throw new Error(
@@ -73,7 +88,7 @@ export default class ImageBuilder {
     };
     const job = this._jobs[0];
     if (!job) {
-      // console.log("No scenes to build.");
+      console.log("No scenes to build.");
       return false;
     }
     if (!job.rootless && !job.root) {
@@ -81,11 +96,10 @@ export default class ImageBuilder {
       if (!job.root) {
         job.rootless = true;
       } else {
-        showInCamera(job.root, this.painter().camera());
+        showInCamera(job.root, this.painter().camera(), false);
         this._painter.setRoot(job.root);
-        this._painter.scheduleRepaint();
+        this._painter.markDirty();
       }
-      job.callbackFunc.call(job.callbackFuncThisArg, this._projector.screenshot());
     }
     if (job.builders) {
       for (let builder = job.builders[0]; builder; builder = job.builders[0]) {
@@ -101,18 +115,24 @@ export default class ImageBuilder {
       }
     }
     let needsUpdate = job.builders && job.builders.length > 0;
-    needsUpdate = this._painter.paint(timeLeft()) || needsUpdate;
-    needsUpdate = this._painter.render() || needsUpdate;
+    needsUpdate = this._painter.paint(this.projector(), timeLeft()) || needsUpdate;
+    needsUpdate = this._painter.render(this.projector()) || needsUpdate;
     if (needsUpdate) {
       this.scheduleUpdate();
       return;
     }
     // console.log("Completed render");
-    this._jobs.shift();
-    //this._window.newImage();
+    if (job.callbackFunc) {
+      job.callbackFunc.call(
+        job.callbackFuncThisArg,
+        this._projector.screenshot()
+      );
+    }
     if (job.root) {
       this._painter.setRoot(null);
     }
+    this._jobs.shift();
+    // this._window.newImage();
     this.scheduleUpdate();
   }
 }
