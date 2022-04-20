@@ -53,8 +53,10 @@
     "webgl-debug": "^2.0.1"
   },
   "dependencies": {
+    "parsegraph-artist": "^3.4.1",
     "parsegraph-block": "^4.3.1",
     "parsegraph-camera": "^1.4.11",
+    "parsegraph-compileprogram": "^2.2.9",
     "parsegraph-direction": "^2.1.0",
     "parsegraph-graphpainter": "^2.4.0",
     "parsegraph-projector": "1.13.0",
