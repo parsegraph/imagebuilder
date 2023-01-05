@@ -55,6 +55,6 @@
     "parsegraph-log": "^1.7.5"
   },
   "dependencies": {
-    "parsegraph-graphpainter": "^2.5.40"
+    "parsegraph-graphpainter": "^2.5.41"
   }
 }
