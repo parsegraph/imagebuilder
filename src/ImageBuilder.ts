@@ -173,6 +173,7 @@ export default class ImageBuilder {
       this.projector().getDOMContainer().innerHTML = "";
     }
     if (proj.hasOverlay()) {
+      this.projector().overlay().resetTransform();
       this.projector().overlay().clearRect(0, 0, w, h);
     }
     if (proj.glProvider().hasGL()) {
