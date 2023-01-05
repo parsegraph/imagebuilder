@@ -112,13 +112,16 @@ export default class ImageBuilder {
       }
     }
     if (job.builders) {
+      // Advance to next builder.
       for (let builder = job.builders[0]; builder; builder = job.builders[0]) {
+        // Build for one cycle.
         const callAgain = builder[0].call(builder[1], timeLeft());
         if (!callAgain) {
           // console.log("Finished with builder");
           job.builders.shift();
         }
         if (timeLeft() < 0) {
+          // Need to run builder again.
           this.scheduleUpdate();
           return;
         }
