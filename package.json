@@ -57,8 +57,8 @@
   "dependencies": {
     "parsegraph-artist": "^3.4.58",
     "parsegraph-block": "^4.6.17",
-    "parsegraph-camera": "^1.4.20",
-    "parsegraph-direction": "^2.2.1",
+    "parsegraph-camera": "^1.4.22",
+    "parsegraph-direction": "^2.2.3",
     "parsegraph-graphpainter": "^2.6.8",
     "parsegraph-projector": "^1.14.6",
     "parsegraph-showincamera": "^1.7.12",
