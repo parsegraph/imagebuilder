@@ -3913,7 +3913,7 @@ parse5@^7.0.0, parse5@^7.1.1:
   dependencies:
     entities "^4.4.0"
 
-parsegraph-artist@^3.4.63, parsegraph-artist@^3.4.65:
+parsegraph-artist@^3.4.65:
   version "3.4.65"
   resolved "https://registry.yarnpkg.com/parsegraph-artist/-/parsegraph-artist-3.4.65.tgz#f759c2c740dd6ebcaf916dec8b5c88b506009a80"
   integrity sha512-41GSLWZrnKn2xBWRRVIFJIB69gz+/w8fbw5fYpQz98XfA5zO1WZRxB6FdnpLWbqmT0nBPekS2h13LN8IEO2BKQ==
@@ -3933,7 +3933,7 @@ parsegraph-artist@^3.4.63, parsegraph-artist@^3.4.65:
     parsegraph-timing "^1.4.19"
     parsegraph-timingbelt "^1.8.3"
 
-parsegraph-block@^4.6.22, parsegraph-block@^4.6.23:
+parsegraph-block@^4.6.23:
   version "4.6.23"
   resolved "https://registry.yarnpkg.com/parsegraph-block/-/parsegraph-block-4.6.23.tgz#d39393bbcae2bb389dedbc210b6170cf427b264d"
   integrity sha512-Zgwd6LKQrGx82FHH59lsuriM9qbCZX5xMlOwfJlcHRCsEpPjY+zKxI6vRMy4DIo77/UqenqLq4YGkKdOGdpsNA==
@@ -3953,7 +3953,7 @@ parsegraph-block@^4.6.22, parsegraph-block@^4.6.23:
     parsegraph-timing "^1.4.19"
     parsegraph-timingbelt "^1.8.3"
 
-parsegraph-blockpainter@^1.7.10, parsegraph-blockpainter@^1.7.9:
+parsegraph-blockpainter@^1.7.10:
   version "1.7.10"
   resolved "https://registry.yarnpkg.com/parsegraph-blockpainter/-/parsegraph-blockpainter-1.7.10.tgz#a05455c04ffc22fbee38b84a055bcd2a8b207031"
   integrity sha512-Jl+fkPxMIcUJRUax9y3Q0W0Wj9mWjxEe19+5xwi564hCyXb6DlCm7nyI1NvFYcruayPAxSmDe/LfxoxvrGGIqw==
@@ -4037,21 +4037,21 @@ parsegraph-gettimeinmillis@^1.4.9:
   resolved "https://registry.yarnpkg.com/parsegraph-gettimeinmillis/-/parsegraph-gettimeinmillis-1.4.9.tgz#2b921d515b1cf767d8a84447e8c7d0376b344d86"
   integrity sha512-az+nImOhRkRJDUyn/QgA5Pgb7aSIeXlHL3i+hBPFxCD9cVRFy99MxKrcqxaRCQqcg2vFtP1GhacbkWx598vwtw==
 
-parsegraph-graphpainter@^2.6.13:
-  version "2.6.13"
-  resolved "https://registry.yarnpkg.com/parsegraph-graphpainter/-/parsegraph-graphpainter-2.6.13.tgz#ff568553a41f4d84e3d3cf37723f48407ff305ec"
-  integrity sha512-fohiG+tuSq8Zw7Em9bSMEKastpvvHHDYik5lkuXnrkj7wNoZvqDmybCtQ5YgMAoXTn8QN7MN9FyqGRyA9UYlTA==
+parsegraph-graphpainter@^2.6.14:
+  version "2.6.14"
+  resolved "https://registry.yarnpkg.com/parsegraph-graphpainter/-/parsegraph-graphpainter-2.6.14.tgz#fe7896ca7e4200fddcb1892be400be40f4e96355"
+  integrity sha512-2+Dx+Fw8LlP/wr95jmAAnHj6FgpYrF2RXlBLiZCLcNmkm3WicpK8kLlG8WPUypEps9k+AVs461ctufM/uZpj0Q==
   dependencies:
-    parsegraph-artist "^3.4.63"
-    parsegraph-block "^4.6.22"
-    parsegraph-blockpainter "^1.7.9"
+    parsegraph-artist "^3.4.65"
+    parsegraph-block "^4.6.23"
+    parsegraph-blockpainter "^1.7.10"
     parsegraph-camera "^1.4.22"
     parsegraph-color "^1.4.12"
     parsegraph-direction "^2.2.4"
     parsegraph-input "^2.0.10"
     parsegraph-matrix "^1.4.15"
     parsegraph-method "^1.4.25"
-    parsegraph-projector "^1.14.9"
+    parsegraph-projector "^1.14.10"
     parsegraph-rect "^1.5.4"
     parsegraph-scene "^2.3.31"
     parsegraph-showincamera "^1.7.15"

@@ -59,7 +59,7 @@
     "parsegraph-block": "^4.6.23",
     "parsegraph-camera": "^1.4.22",
     "parsegraph-direction": "^2.2.4",
-    "parsegraph-graphpainter": "^2.6.13",
+    "parsegraph-graphpainter": "^2.6.14",
     "parsegraph-projector": "^1.14.10",
     "parsegraph-showincamera": "^1.7.15",
     "parsegraph-timing": "^1.4.19",
