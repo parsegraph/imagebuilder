@@ -55,13 +55,13 @@
     "parsegraph-log": "^1.9.3"
   },
   "dependencies": {
-    "parsegraph-artist": "^3.4.65",
-    "parsegraph-block": "^4.6.23",
+    "parsegraph-artist": "^3.4.67",
+    "parsegraph-block": "^4.6.25",
     "parsegraph-camera": "^1.4.24",
-    "parsegraph-direction": "^2.2.6",
-    "parsegraph-graphpainter": "^2.6.14",
-    "parsegraph-projector": "^1.14.11",
-    "parsegraph-showincamera": "^1.7.16",
+    "parsegraph-direction": "^2.3.0",
+    "parsegraph-graphpainter": "^2.6.16",
+    "parsegraph-projector": "^1.14.12",
+    "parsegraph-showincamera": "^1.7.18",
     "parsegraph-timing": "^1.4.20",
     "parsegraph-timingbelt": "^1.8.4"
   }
